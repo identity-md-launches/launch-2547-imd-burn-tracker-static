@@ -1,0 +1,18 @@
+{
+  "kind": "evm_contracts",
+  "contracts": [
+    {
+      "contract": "BurnTracker",
+      "constructorArgs": [
+        "$owner",
+        "0x000000000000000000000000a43e6f75ee006411f79ac1c84120606c2330de82",
+        "0x000000000000000000000000d34a99bc0f67ae1bbd63c660e6d0b0dd03e263b7",
+        "0x6a6f622e6f70656e406a6f622d31000000000000000000000000000000000000",
+        "0x6a6f622e636f6e74696e7565406a6f622d310000000000000000000000000000",
+        "0x0000000000000000000000000000000000000000000000000000000000015180",
+        "0x000000000000000000000000000000000000000000000000000000000002a300"
+      ]
+    }
+  ],
+  "notes": "Deploy only BurnTracker on Ethereum mainnet. Constructor arguments, in order: launch payer as owner ($owner), IMD Intake v2, existing IMD asset, right-zero-padded bytes32 strings job.open@job-1 and job.continue@job-1, cooldown 86400 seconds, staleAfter 172800 seconds. The constructor stores the continuation template as bodyPrefix and bodySuffix; no initialization call or ETH funding is required. The owner approves IMD and calls open(bytes) to commission the site, with BurnTracker recorded as its payer. After completion and cooldown, anyone can fund a continuation using the exact authenticated result.json and a maximum price; callers cannot change the stored objective. The owner controls the template, actions, Intake/asset, timing, recovery, hash adoption and token withdrawals; ownership transfer requires acceptance. No token, pool or additional application contract is deployed."
+}

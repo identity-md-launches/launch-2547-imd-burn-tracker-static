@@ -1,0 +1,101 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/MainnetIntake.t.sol:MainnetIntakeTest
+[PASS] testMainnetContinuationWithRealCompletedResultProof() (gas: 595287)
+[PASS] testMainnetOpenRecordsContractAsPayerAndPaysTreasury() (gas: 289482)
+Logs:
+  live fork (1) / recorded mainnet state (0): 0
+
+[PASS] testMainnetUpdate4545BytesUnder300k() (gas: 1721000)
+Logs:
+  4545-byte gross execution gas (before refunds, excluding intrinsic): 233165
+  4545-byte transaction gas (including intrinsic, after capped refunds): 287765
+  4545-byte transaction gas before refunds: 327565
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 15.59ms (8.00ms CPU time)
+
+Ran 14 tests for test/AdditionalRules.t.sol:AdditionalRulesTest
+[PASS] testCallbackStillAllowedAfterDeadlineUntilOwnerSupersedesIt() (gas: 419804)
+[PASS] testConstructorRejectsInvalidStaticConfiguration() (gas: 8517)
+[PASS] testCooldownSettingAffectsExistingIdleCompletion() (gas: 634575)
+[PASS] testFuzzEscapedStringCannotForgeKey(uint8,uint8) (runs: 512, μ: 48298, ~: 48104)
+[PASS] testFuzzParserWordBorrowCandidates(uint8,bool) (runs: 512, μ: 29156, ~: 27855)
+[PASS] testFuzzPlainParserMatchesJsonDecoder(bytes32,uint8) (runs: 512, μ: 52089, ~: 38014)
+[PASS] testOwnerCanChangeAssetAndNewIntakeForFutureOrders() (gas: 3263248)
+[PASS] testOwnerEditedBodyAndActionsAreUsedForUpdatesAndRecovery() (gas: 1146066)
+[PASS] testOwnershipCannotBeAcceptedWithoutAProposal() (gas: 65867)
+[PASS] testOwnershipProposalCanBeReplacedButOnlyLatestCandidateCanAccept() (gas: 155612)
+[PASS] testRuntimeFitsDeploymentPolicy() (gas: 7352818)
+[PASS] testStaleRecoveryCanBeReplacedWithAnOpen() (gas: 804003)
+[PASS] testUnknownFailureRequestCannotChangeAwaitedOrder() (gas: 364892)
+[PASS] testUnpricedUpdateAndZeroMaxPriceCannotMoveFunds() (gas: 617257)
+Suite result: ok. 14 passed; 0 failed; 0 skipped; finished in 225.01ms (221.27ms CPU time)
+
+Ran 34 tests for test/BurnTracker.t.sol:BurnTrackerTest
+[PASS] testAllAdministrationIsOwnerOnly() (gas: 219786)
+[PASS] testAuthenticatedMalformedProofStillRejected() (gas: 442649)
+[PASS] testBodyLengthBounds() (gas: 148536)
+[PASS] testCallbackAuthenticationAndOnceOnly() (gas: 546513)
+[PASS] testChangingIntakeDoesNotChangePendingCallbackAuthority() (gas: 2259716)
+[PASS] testCompletionReplacesHashAndRestartsCooldown() (gas: 743600)
+[PASS] testConstructorStaticWordsAndExactTemplate() (gas: 140199)
+[PASS] testConstructorWorksOnEmptyChainWithGivenMainnetAddresses() (gas: 23610)
+[PASS] testFeeOnTransferTokenRejected() (gas: 185249)
+[PASS] testInvalidConfiguration() (gas: 345106)
+[PASS] testInvalidRecoveryIdsAndUnopenedRecovery() (gas: 472841)
+[PASS] testOpenCannotReplaceCompletedSite() (gas: 444183)
+[PASS] testOpenOnlyOwnerAndOneOrderAtATime() (gas: 464925)
+[PASS] testOpenPaysLivePriceAndContractIsPayer() (gas: 447641)
+[PASS] testPriceAboveMaximumRevertsBeforeAnyTokenCall() (gas: 574158)
+[PASS] testRecoverFromIdleBypassesCooldownAndUsesTemplate() (gas: 668824)
+[PASS] testRecoveryOnlyAfterFixedStaleDeadlineAndRejectsLateCallback() (gas: 737643)
+[PASS] testRefusedOpenReturnsToUnopenedAndCanRetry() (gas: 583191)
+[PASS] testRefusedRecoveryGoesStuck() (gas: 688242)
+[PASS] testRefusedUpdatePreservesProofAndRestartsCooldown() (gas: 898092)
+[PASS] testSetResultHashInIdleStuckAndStalePending() (gas: 852891)
+[PASS] testSettersAndTwoStepOwnership() (gas: 393525)
+[PASS] testStaleOpenCanOpenAgain() (gas: 523537)
+[PASS] testTokenAndIntakeReentrancyCannotOrderOrSettle() (gas: 1108994)
+[PASS] testUnpricedActionsAndPaymentFailuresRollBack() (gas: 477112)
+[PASS] testUpdateProofPriceExactBodyAndEvents() (gas: 819854)
+[PASS] testUpdateRequiresCompletionAndCooldownAtBoundary() (gas: 665294)
+[PASS] testWithdrawOnlyOwnerRecoversAccidentalTokens() (gas: 163799)
+[PASS] testWrongProofCannotSpendTokensOrChooseParent() (gas: 466982)
+[PASS] testZeroHashAndUnknownFailureStatusPreservePending() (gas: 508984)
+[PASS] test_FailedOpenCanOpenAgain() (gas: 573066)
+[PASS] test_FailedRecoveryCanRecoverAgain() (gas: 849596)
+[PASS] test_FailedUpdateCanOpenAgain() (gas: 842132)
+[PASS] test_FailureCannotBeAnsweredTwiceOrWithResult() (gas: 455124)
+Suite result: ok. 34 passed; 0 failed; 0 skipped; finished in 8.03ms (7.33ms CPU time)
+
+Ran 10 tests for test/ParserAndGas.t.sol:ParserAndGasTest
+[PASS] testCallbacksWithin200kAndOnlyWriteConstructorInitializedSlots() (gas: 2394347)
+Logs:
+  result callback gas: 20199
+  failure callback gas: 15398
+  failure callback gas: 15200
+  failure callback gas: 15224
+  failure callback gas: 15200
+  failure callback gas: 15252
+  failure callback gas: 15200
+  result callback gas: 17399
+
+[PASS] testEscapedQuoteInValueCannotForgeKey() (gas: 37183)
+[PASS] testFuzzAnyAlterationOfAuthenticatedProofRejected(uint16,bytes1) (runs: 512, μ: 442950, ~: 442955)
+[PASS] testFuzzBadUuidByteRejected(bytes1,uint8) (runs: 512, μ: 17265, ~: 16409)
+[PASS] testFuzzDuplicateKeyAlwaysRejected(bytes16,bool) (runs: 512, μ: 30770, ~: 30750)
+[PASS] testFuzzParserUuidRoundTrip(bytes16,uint16) (runs: 512, μ: 216657, ~: 83490)
+[PASS] testParserRejectsMissingDuplicateMalformedAndUppercase() (gas: 183163)
+[PASS] testRealResultDocumentsMatchMainnetHashesAndParseAndOrderExactBody() (gas: 3730444)
+Logs:
+  parser gas for 1967 bytes: 30108
+  parser gas for 815 bytes: 24875
+  parser gas for 1422 bytes: 27753
+  parser gas for 754 bytes: 24162
+  parser gas for 1975 bytes: 30188
+
+[PASS] testUnterminatedStringAndTruncatedUuidRevert() (gas: 36888)
+[PASS] testWhitespaceAndJobIdValueDoNotCountAsKey() (gas: 21789)
+Suite result: ok. 10 passed; 0 failed; 0 skipped; finished in 355.93ms (356.02ms CPU time)
+
+Ran 4 test suites in 375.85ms (604.57ms CPU time): 61 tests passed, 0 failed, 0 skipped (61 total tests)

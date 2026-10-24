@@ -1,0 +1,330 @@
+Compiling 5 files with Solc 0.8.26
+Solc 0.8.26 finished in 10.41s
+Compiler run successful!
+
+╭-------------+------------------+-------------------+--------------------+---------------------╮
+| Contract    | Runtime Size (B) | Initcode Size (B) | Runtime Margin (B) | Initcode Margin (B) |
++===============================================================================================+
+| BurnTracker | 17,314           | 19,336            | 7,262              | 29,816              |
+|-------------+------------------+-------------------+--------------------+---------------------|
+| MockIntake  | 6,315            | 6,495             | 18,261             | 42,657              |
+|-------------+------------------+-------------------+--------------------+---------------------|
+| MockToken   | 3,484            | 3,510             | 21,092             | 45,642              |
+╰-------------+------------------+-------------------+--------------------+---------------------╯
+
+warning[missing-events-access-control]: `_status` is changed without an event but is used for access control
+    ╭▸ src/BurnTracker.sol:542:9
+    │
+542 │         _status.state = PENDING;
+    │         ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/missing-events-access-control
+
+warning[missing-events-access-control]: `_pendingIntake` is changed without an event but is used for access control
+    ╭▸ src/BurnTracker.sol:546:9
+    │
+546 │         _pendingIntake = to;
+    │         ━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/missing-events-access-control
+
+warning[missing-events-access-control]: `lastRequestId` is changed without an event but is used for access control
+    ╭▸ src/BurnTracker.sol:562:9
+    │
+562 │         lastRequestId = requestId;
+    │         ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/missing-events-access-control
+
+warning[missing-events-access-control]: `_status` is changed without an event but is used for access control
+    ╭▸ src/BurnTracker.sol:585:9
+    │
+585 │         _status.state = IDLE;
+    │         ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/missing-events-access-control
+
+warning[missing-events-access-control]: `_status` is changed without an event but is used for access control
+    ╭▸ src/BurnTracker.sol:506:9
+    │
+506 │         _status.cooldown = cooldown_;
+    │         ━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/missing-events-access-control
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:132:59
+    │
+132 │     function open(bytes calldata body) external onlyOwner nonReentrant returns (bytes32 requestId) {
+    │                                                           ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+    ╭▸ src/BurnTracker.sol:146:13
+    │
+146 │         if (block.timestamp < until) revert CooldownActive(until);
+    │             ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/block-timestamp
+
+warning[reentrancy-events]: event emitted after an external call; reentrancy can reorder or fabricate logs that off-chain consumers rely on
+    ╭▸ src/BurnTracker.sol:566:9
+    │
+566 │         emit Ordered(requestId, kind, msg.sender, amount, parent);
+    │         ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/reentrancy-events
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:153:70
+    │
+153 │     function recover(string calldata parentJobId) external onlyOwner nonReentrant returns (bytes32 requestId) {
+    │                                                                      ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:161:61
+    │
+161 │     function setResultHash(bytes32 hash) external onlyOwner nonReentrant {
+    │                                                             ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[unsafe-typecast]: typecast can truncate values
+    ╭▸ src/BurnTracker.sol:191:36
+    │
+191 │                 _status.lastDone = uint40(block.timestamp);
+    │                                    ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'uint40' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://getfoundry.sh/forge/linting/unsafe-typecast
+
+warning[uninitialized-local]: local variable is read before being initialized
+    ╭▸ src/BurnTracker.sol:319:23
+    │
+319 │         parent = json[idOffset:idOffset + 36];
+    │                       ━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/uninitialized-local
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:216:17
+    │
+216 │                 revert(28, 4)
+    │                 ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:220:17
+    │
+220 │                 revert(28, 4)
+    │                 ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[uninitialized-local]: local variable is read before being initialized
+    ╭▸ src/BurnTracker.sol:414:27
+    │
+414 │             if and(iszero(escaped), iszero(found)) {
+    │                           ━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/uninitialized-local
+
+warning[uninitialized-local]: local variable is read before being initialized
+    ╭▸ src/BurnTracker.sol:420:23
+    │
+420 │         parent = json[offset:offset + 36];
+    │                       ━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/uninitialized-local
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:389:29
+    │
+389 │ …                     revert(28, 4)
+    │                       ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:401:29
+    │
+401 │ …                     revert(28, 4)
+    │                       ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:408:29
+    │
+408 │ …                     revert(28, 4)
+    │                       ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[require-revert-in-loop]: `require` or `revert` inside a loop
+    ╭▸ src/BurnTracker.sol:436:21
+    │
+436 │                     revert(28, 4)
+    │                     ━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/require-revert-in-loop
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:482:87
+    │
+482 │     function setBody(bytes calldata prefix, bytes calldata suffix) external onlyOwner nonReentrant {
+    │                                                                                       ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:490:78
+    │
+490 │     function setActions(bytes32 open_, bytes32 continue_) external onlyOwner nonReentrant {
+    │                                                                              ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:497:76
+    │
+497 │     function setIntake(address intake_, address asset_) external onlyOwner nonReentrant {
+    │                                                                            ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:504:81
+    │
+504 │     function setTiming(uint32 cooldown_, uint32 staleAfter_) external onlyOwner nonReentrant {
+    │                                                                                 ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:511:85
+    │
+511 │     function withdraw(address token, address to, uint256 amount) external onlyOwner nonReentrant {
+    │                                                                                     ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[non-reentrant-not-first]: `nonReentrant` is not the first modifier
+    ╭▸ src/BurnTracker.sol:517:65
+    │
+517 │     function transferOwnership(address next) external onlyOwner nonReentrant {
+    │                                                                 ━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/non-reentrant-not-first
+
+warning[unsafe-typecast]: typecast can truncate values
+    ╭▸ src/BurnTracker.sol:544:29
+    │
+544 │         _status.orderedAt = uint40(block.timestamp);
+    │                             ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'uint40' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://getfoundry.sh/forge/linting/unsafe-typecast
+
+warning[unsafe-typecast]: typecast can truncate values
+    ╭▸ src/BurnTracker.sol:545:27
+    │
+545 │         _status.staleAt = uint40(block.timestamp + _status.staleAfter);
+    │                           ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'uint40' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://getfoundry.sh/forge/linting/unsafe-typecast
+
+warning[incorrect-strict-equality]: dangerous strict equality check on an externally-influenced value
+    ╭▸ src/BurnTracker.sol:550:13
+    │
+550 │         if (token.balanceOf(address(this)) != beforeBalance + amount) revert UnsupportedAsset();
+    │             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/incorrect-strict-equality
+
+warning[incorrect-strict-equality]: dangerous strict equality check on an externally-influenced value
+    ╭▸ src/BurnTracker.sol:565:13
+    │
+565 │         if (token.balanceOf(address(this)) != beforeBalance) revert UnsupportedAsset();
+    │             ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/incorrect-strict-equality
+
+warning[block-timestamp]: usage of `block.timestamp` in a comparison may be manipulated by validators
+    ╭▸ src/BurnTracker.sol:581:44
+    │
+581 │         return _status.state == PENDING && block.timestamp >= _status.staleAt;
+    │                                            ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ╰ help: https://getfoundry.sh/forge/linting/block-timestamp
+
+warning[unsafe-typecast]: typecast can truncate values
+    ╭▸ src/BurnTracker.sol:587:28
+    │
+587 │         _status.lastDone = uint40(block.timestamp);
+    │                            ━━━━━━━━━━━━━━━━━━━━━━━
+    │
+    ├ note: consider disabling this lint if you're certain the cast is safe
+    │       
+    │       // casting to 'uint40' is safe because [explain why]
+    │       // forge-lint: disable-next-line(unsafe-typecast)
+    │       
+    │       
+    ╰ help: https://getfoundry.sh/forge/linting/unsafe-typecast
+
+warning[environment-read-across-mutation]: `block.timestamp` may be reused across `vm.warp`
+    ╭▸ test/BurnTracker.t.sol:221:17
+    │
+221 │         vm.warp(block.timestamp + 45);
+    │         ────────━━━━━━━━━━━━━━━────── `vm.warp` changes this environment here
+    │
+    ├ help: capture it with `vm.getBlockTimestamp()` instead
+    ╰ help: https://getfoundry.sh/forge/linting/environment-read-across-mutation
+
+warning[environment-read-across-mutation]: `block.timestamp` may be reused across `vm.warp`
+    ╭▸ test/BurnTracker.t.sol:240:17
+    │
+240 │         vm.warp(block.timestamp + 300);
+    │         ────────━━━━━━━━━━━━━━━─────── `vm.warp` changes this environment here
+    │
+    ├ help: capture it with `vm.getBlockTimestamp()` instead
+    ╰ help: https://getfoundry.sh/forge/linting/environment-read-across-mutation
+
+warning[environment-read-across-mutation]: `block.timestamp` may be reused across `vm.warp`
+    ╭▸ test/BurnTracker.t.sol:330:17
+    │
+330 │         vm.warp(block.timestamp + 2 days);
+    │         ────────━━━━━━━━━━━━━━━────────── `vm.warp` changes this environment here
+    │
+    ├ help: capture it with `vm.getBlockTimestamp()` instead
+    ╰ help: https://getfoundry.sh/forge/linting/environment-read-across-mutation
+
+warning[environment-read-across-mutation]: `block.timestamp` may be reused across `vm.warp`
+   ╭▸ test/AdditionalRules.t.sol:77:17
+   │
+77 │         vm.warp(block.timestamp + 30 days);
+   │         ────────━━━━━━━━━━━━━━━─────────── `vm.warp` changes this environment here
+   │
+   ├ help: capture it with `vm.getBlockTimestamp()` instead
+   ╰ help: https://getfoundry.sh/forge/linting/environment-read-across-mutation
+

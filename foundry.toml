@@ -1,0 +1,20 @@
+[profile.default]
+src = "src"
+test = "test"
+libs = ["lib"]
+solc = "0.8.26"
+evm_version = "cancun"
+optimizer = true
+optimizer_runs = 100000
+via_ir = true
+bytecode_hash = "none"
+isolate = true
+fs_permissions = [{ access = "read", path = "./test/fixtures" }]
+remappings = ["forge-std/=lib/forge-std/src/", "@openzeppelin/contracts/=lib/openzeppelin-contracts/contracts/"]
+
+[profile.default.fuzz]
+runs = 512
+seed = "0x33a6f309d12a1ca61d39890713d8edefa39048b045c57d726a609eaee244af40"
+
+[fmt]
+line_length = 120

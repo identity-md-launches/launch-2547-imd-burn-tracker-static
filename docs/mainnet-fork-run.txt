@@ -1,0 +1,17 @@
+No files changed, compilation skipped
+
+Ran 3 tests for test/MainnetIntake.t.sol:MainnetIntakeTest
+[PASS] testMainnetContinuationWithRealCompletedResultProof() (gas: 595287)
+[PASS] testMainnetOpenRecordsContractAsPayerAndPaysTreasury() (gas: 289470)
+Logs:
+  live fork (1) / recorded mainnet state (0): 1
+
+[PASS] testMainnetUpdate4545BytesUnder300k() (gas: 1721000)
+Logs:
+  4545-byte gross execution gas (before refunds, excluding intrinsic): 233165
+  4545-byte transaction gas (including intrinsic, after capped refunds): 287765
+  4545-byte transaction gas before refunds: 327565
+
+Suite result: ok. 3 passed; 0 failed; 0 skipped; finished in 3.63s (2.92s CPU time)
+
+Ran 1 test suite in 3.80s (3.63s CPU time): 3 tests passed, 0 failed, 0 skipped (3 total tests)
